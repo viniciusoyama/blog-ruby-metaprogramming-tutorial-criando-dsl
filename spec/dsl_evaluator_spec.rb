@@ -16,13 +16,13 @@ describe DSLEvaluator do
 
     expect(persons.length).to eq(2)
     expect(persons["Kevin"].name).to eq("Kevin")
-    expect(persons["Kevin"].email).to eq("viny@email.com")
-    expect(persons["Kevin"].weight).to eq(50)
+    expect(persons["Kevin"].email).to eq("kevin@email.com")
+    expect(persons["Kevin"].weight).to eq(1773)
 
 
-    expect(persons["Viny"].name).to eq("Kevin")
-    expect(persons["Viny"].email).to eq("kevin@email.com")
-    expect(persons["Viny"].weight).to eq(1773)
+    expect(persons["Viny"].name).to eq("Viny")
+    expect(persons["Viny"].email).to eq("viny@email.com")
+    expect(persons["Viny"].weight).to eq(50)
   end
 
   specify "I can declare persons with relations" do

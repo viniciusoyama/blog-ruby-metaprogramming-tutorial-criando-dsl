@@ -8,8 +8,34 @@ class DSLEvaluator
       @persons = {}
     end
 
-    def person(name)
-      @persons[name] = Person.new
+    def person(name, &block)
+      builder = PersonBuilder.new
+      builder.instance_eval(&block)
+      person = builder.get_instance
+      person.name = name
+      @persons[name] = person
+    end
+  end
+
+  class PersonBuilder
+    def initialize
+      @person = Person.new
+    end
+
+    def name(name)
+      @person.name = name
+    end
+
+    def email(email)
+      @person.email = email
+    end
+
+    def weight(weight)
+      @person.weight = weight
+    end
+
+    def get_instance
+      @person
     end
   end
 
